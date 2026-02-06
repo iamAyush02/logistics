@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARB Logistics - About & Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- For icons -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #f3e5f5); /* Subtle gradient background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            animation: fadeInBody 1s ease-in;
+        }
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient header */
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideIn 1s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        h2 {
+            font-size: 2em;
+            color: #007bff;
+            margin-top: 40px;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        p {
+            font-size: 1.2em;
+            padding: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        li {
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,123,255,0.2);
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .contact-info {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border: 2px solid #007bff;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        button {
+            padding: 12px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .map {
+            margin: 20px auto;
+            max-width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .social-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .social-links a {
+            margin: 0 10px;
+            font-size: 1.5em;
+        }
+        nav {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+        }
+        /* Additional CSS for "Why Choose ARB Logistics?" section animations */
+section:nth-of-type(3) { /* Targets the third <section> in <main>, assuming it's the "Why Choose" one; adjust if needed */
+    animation: fadeInUp 1s ease-out 0.3s both; /* Overall section fade-in with delay */
+}
+
+section:nth-of-type(3) h2 {
+    animation: fadeInUp 0.8s ease-out; /* Existing, but ensuring it triggers */
+}
+
+section:nth-of-type(3) p:first-of-type { /* First paragraph */
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+section:nth-of-type(3) ul li {
+    animation: staggerFadeIn 0.8s ease-out both; /* Staggered fade-in for list items */
+    animation-delay: calc(var(--i) * 0.2s); /* Delays each li by 0.2s increments */
+    --i: 0; /* Default, will be overridden per li */
+}
+
+section:nth-of-type(3) ul li:nth-child(1) { --i: 1; }
+section:nth-of-type(3) ul li:nth-child(2) { --i: 2; }
+section:nth-of-type(3) ul li:nth-child(3) { --i: 3; }
+section:nth-of-type(3) ul li:nth-child(4) { --i: 4; }
+section:nth-of-type(3) ul li:nth-child(5) { --i: 5; }
+
+@keyframes staggerFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+section:nth-of-type(3) ul li:hover {
+    transform: translateY(-8px) scale(1.02); /* Lift and slight scale on hover */
+    box-shadow: 0 6px 20px rgba(0,123,255,0.3); /* Glow effect */
+    transition: all 0.3s ease;
+}
+
+section:nth-of-type(3) p:last-of-type { /* Last paragraph */
+    animation: fadeInUp 1s ease-out 1.5s both; /* Delayed fade-in after list */
+}
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            padding: 12px 20px;
+            border: 2px solid #007bff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        nav a:hover {
+            background-color: #007bff;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,123,255,0.3);
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2em; }
+            nav a { margin: 10px; display: block; width: 80%; margin: 10px auto; }
+            .contact-info { padding: 20px; }
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-info-circle"></i> About ARB Logistics</h1>
+    </header>
+    <main>
+        <section>
+            <h2>About Us</h2>
+            <p>Founded in 2010, ARB Logistics has grown to become a trusted name in the logistics industry. Our team of over 200 experts is dedicated to providing seamless transportation and warehousing services tailored to your needs. We leverage cutting-edge technology, including AI-driven route optimization and real-time tracking, to ensure efficiency and sustainability in global supply chains. With a focus on eco-friendly practices, we've reduced carbon emissions by 30% in the last five years.</p>
+        </section>
+        <section>
+            <h2>Our Services</h2>
+            <p>We offer a comprehensive range of logistics solutions designed to meet diverse industry demands:</p>
+            <ul>
+                <li><strong>Freight Forwarding:</strong> International and domestic shipping with customs expertise to minimize delays and costs.</li>
+                <li><strong>Warehousing and Distribution:</strong> Secure, climate-controlled facilities with automated inventory systems for fast order fulfillment.</li>
+                <li><strong>Supply Chain Management:</strong> End-to-end optimization using data analytics to predict demand and reduce waste.</li>
+                <li><strong>Customs Clearance:</strong> Hassle-free compliance with global regulations, ensuring smooth border crossings.</li>
+                <li><strong>Express Delivery:</strong> Same-day and next-day services for urgent shipments, backed by our fleet of 500+ vehicles.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Why Choose ARB Logistics?</h2>
+            <p>In the competitive world of logistics, we stand out with:</p>
+            <ul>
+                <li>99.8% on-time delivery rate, backed by real-time GPS tracking.</li>
+                <li>Partnerships with major carriers like FedEx and DHL for global reach.</li>
+                <li>Commitment to sustainability, including electric vehicle fleets and carbon offset programs.</li>
+                <li>24/7 customer support with dedicated account managers.</li>
+                <li>Competitive pricing with transparent billing—no hidden fees.</li>
+            </ul>
+            <p>Our clients include Fortune 500 companies in manufacturing, e-commerce, and healthcare, trusting us to handle millions of shipments annually.</p>
+        </section>
+        <section>
+            <h2>What Our Clients Say</h2>
+            <p>"ARB Logistics transformed our supply chain—faster deliveries and lower costs!" – Jane Doe, CEO of TechCorp.</p>
+            <p>"Reliable and innovative—highly recommend for international freight." – John Smith, Logistics Manager at GlobalTrade Inc.</p>
+        </section>
+        <section>
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:info@arblogistics.com">info@arblogistics.com</a></p>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Address:</strong> 123 Logistics Lane, City, State 12345</p>
+                <p>For more details, visit our <a href="https://www.arblogistics.com" target="_blank">official website</a>.</p>
+                <h3>Send Us a Message</h3>
+                <form action="#" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit Inquiry</button>
+                </form>
+                <div class="social-links">
+                    <a href="#" class="fab fa-facebook"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153168!3d-37.816279742021665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d4a4c8d1e8b!2sMelbourne%20CBD%2C%20Victoria%2C%20Australia!5e0!3m2!1sen!2sus!4v1633072800000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+    </main>
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About & Contact</a>
+    </nav>
+</body>
+</html>
